@@ -13,6 +13,11 @@ def token_required(required_role=None):
     def decorator(f):
         @wraps(f)
         def wrapper(*args, **kwargs):
+
+            # ✅ ALLOW CORS PREFLIGHT REQUESTS
+            if request.method == "OPTIONS":
+                return jsonify({}), 200
+
             auth_header = request.headers.get("Authorization")
 
             if not auth_header or not auth_header.startswith("Bearer "):

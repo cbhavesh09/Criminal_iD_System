@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Identify Suspect</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+ <nav class="navbar">
+  <h2>Criminal Identification System</h2>
+  <div>
+    <a href="index.html">About Us</a>
+    <a href="criminals.html">Criminals</a>
+    <a href="identify.html">Identify</a>
+    <button onclick="logout()">Logout</button>
+  </div>
+</nav>
+
+
+  <main>
+    <h2>Identify Suspect</h2>
+
+    <!-- UPLOAD FORM -->
+    <section class="form-section">
+      <form id="identifyForm" enctype="multipart/form-data">
+        <input type="file" accept="image/*" required />
+        <button type="submit">Identify</button>
+      </form>
+    </section>
+
+    <!-- LOADER -->
+    <div id="loader" class="loader hidden"></div>
+
+    <!-- RESULT -->
+    <section id="result" class="identify-result hidden">
+      <div class="comparison">
+        <div class="image-box">
+          <h3>Uploaded Image</h3>
+          <img id="uploadedImage" />
+        </div>
+
+        <div class="image-box">
+          <h3>Database Image</h3>
+          <img id="dbImage" />
+          <div id="details" class="details"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/main.js"></script>
+  <script src="js/identify.js"></script>
+</body>
+</html>

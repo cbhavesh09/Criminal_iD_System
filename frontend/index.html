@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Criminal Identification System</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+ <nav class="navbar">
+  <h2>Criminal Identification System</h2>
+  <div>
+    <a href="index.html">About Us</a>
+    <a href="criminals.html">Criminals</a>
+    <a href="identify.html">Identify</a>
+    <button id="authBtn"></button>
+  </div>
+</nav>
+
+
+  <main>
+    <section>
+      <h2>About the System</h2>
+      <p>
+        This system securely stores criminal records using encrypted images
+        and identifies suspects using cryptographic image hashing.
+      </p>
+    </section>
+
+    <section>
+      <h2>Key Features</h2>
+      <ul>
+        <li>Secure image encryption</li>
+        <li>SHA256-based exact image matching</li>
+        <li>Authorized access only</li>
+        <li>MongoDB-backed database</li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- ✅ LOAD JS AT THE END (CRITICAL FIX) -->
+  <script src="js/main.js"></script>
+
+</body>
+</html>

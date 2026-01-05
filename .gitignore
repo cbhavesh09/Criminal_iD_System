@@ -1,0 +1,22 @@
+
+# Python
+__pycache__/
+*.pyc
+venv/
+
+# Environment variables
+.env
+
+# Uploads & temp files
+backend/uploads/
+backend/uploads/temp/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Node / frontend cache
+node_modules/

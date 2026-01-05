@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Criminal Database</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <h2>Criminal Identification System</h2>
+    <div>
+      <a href="index.html">About Us</a>
+      <a href="criminals.html">Criminals</a>
+      <a href="identify.html">Identify</a>
+      <button onclick="logout()">Logout</button>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- PAGE HEADER -->
+    <h2>Criminal Records</h2>
+
+    <!-- ADD CRIMINAL SECTION -->
+    <section class="form-section">
+      <form id="criminalForm" enctype="multipart/form-data">
+        <h3>Add New Criminal</h3>
+
+        <input
+          type="text"
+          placeholder="Full Name"
+          required
+        />
+
+        <input
+          type="number"
+          placeholder="Age"
+          required
+        />
+
+        <input
+          type="text"
+          placeholder="Charges (comma separated)"
+          required
+        />
+
+        <input
+          type="file"
+          accept="image/*"
+          required
+        />
+
+        <button type="submit">
+          Add to Database
+        </button>
+      </form>
+    </section>
+
+    <!-- SECTION DIVIDER -->
+    <hr style="border: none; border-top: 1px solid #e5e7eb; margin: 40px 0;">
+
+    <!-- STORED CRIMINALS -->
+    <section>
+      <h3>Stored Criminals</h3>
+
+      <div
+        id="criminalGrid"
+        class="criminal-grid"
+      >
+        <!-- Criminal cards injected by criminals.js -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- SCRIPTS -->
+  <script src="js/main.js"></script>
+  <script src="js/criminals.js"></script>
+</body>
+</html>

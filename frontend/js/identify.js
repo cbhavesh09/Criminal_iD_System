@@ -14,25 +14,21 @@ form.addEventListener("submit", async (e) => {
   const file = form.elements[0].files[0];
   if (!file) return;
 
-  // Reset UI
   resultSection.classList.add("hidden");
   loader.classList.remove("hidden");
 
-  // Show uploaded image immediately
   uploadedImgEl.src = URL.createObjectURL(file);
 
   const formData = new FormData();
   formData.append("image", file);
 
-  // Call identify API
-  const res = await fetch(`${API_BASE}/identify`, {
+  const res = await fetch(`${API_BASE}/api/identify`, {
     method: "POST",
     headers: authHeaders(),
     body: formData
   });
 
   const data = await res.json();
-
   loader.classList.add("hidden");
 
   if (!res.ok) {
@@ -47,9 +43,8 @@ form.addEventListener("submit", async (e) => {
 
   const criminal = data.criminal;
 
-  // Fetch decrypted DB image
   const imgRes = await fetch(
-    `${API_BASE}/criminals/${criminal._id}/decrypt-image`,
+    `${API_BASE}/api/criminals/${criminal._id}/decrypt-image`,
     { headers: authHeaders() }
   );
 
@@ -62,7 +57,6 @@ form.addEventListener("submit", async (e) => {
 
   dbImgEl.src = `data:image/png;base64,${imgData.image}`;
 
-  // Fill details
   detailsEl.innerHTML = `
     <p><strong>Name:</strong> ${criminal.name}</p>
     <p><strong>Case Number:</strong> ${criminal.caseNumber}</p>

@@ -20,19 +20,27 @@ def create_app():
     # ==============================
     # CORS (PRODUCTION READY)
     # ==============================
-    CORS(
-        app,
-        resources={
-            r"/api/*": {
-                "origins": [
-                    "http://localhost:5500",
-                    "http://127.0.0.1:5500",
-                    "https://criminal-id-system.vercel.app"
-                ]
-            }
+CORS(
+    app,
+    resources={
+        r"/api/*": {
+            "origins": [
+                "http://localhost:5500",
+                "http://127.0.0.1:5500",
+                "https://criminal-i-d-system.vercel.app"
+            ]
         },
-        supports_credentials=True
-    )
+        r"/auth/*": {
+            "origins": [
+                "http://localhost:5500",
+                "http://127.0.0.1:5500",
+                "https://criminal-i-d-system.vercel.app"
+            ]
+        }
+    },
+    supports_credentials=True
+)
+
 
     # ==============================
     # ROUTES

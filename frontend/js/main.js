@@ -1,7 +1,7 @@
 // ==============================
 // API CONFIG
 // ==============================
-const API_BASE = "http://localhost:5000/api";
+const API_BASE = "https://criminal-id-system.onrender.com";
 
 // ==============================
 // TOKEN HELPERS

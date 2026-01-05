@@ -18,20 +18,21 @@ def create_app():
     app.config["DEBUG"] = Config.FLASK_DEBUG
 
     # ==============================
-    # CORS — FINAL & CORRECT
+    # CORS (PRODUCTION READY)
     # ==============================
-   CORS(
-    app,
-    resources={r"/api/*": {
-        "origins": [
-            "http://localhost:5500",
-            "http://127.0.0.1:5500",
-            "https://criminal-id-system.vercel.app"
-        ]
-    }},
-    supports_credentials=True
-)
-
+    CORS(
+        app,
+        resources={
+            r"/api/*": {
+                "origins": [
+                    "http://localhost:5500",
+                    "http://127.0.0.1:5500",
+                    "https://criminal-id-system.vercel.app"
+                ]
+            }
+        },
+        supports_credentials=True
+    )
 
     # ==============================
     # ROUTES
@@ -68,6 +69,10 @@ def create_app():
     return app
 
 
-if __name__ == "__main__":
-    app = create_app()
+# ==============================
+# GUNICORN ENTRYPOINT
+# ==============================
+app = create_app()
 
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000)

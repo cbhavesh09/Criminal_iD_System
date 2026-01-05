@@ -1,6 +1,9 @@
 const signupForm = document.getElementById("signupForm");
 const loginForm = document.getElementById("loginForm");
 
+// ==============================
+// SIGNUP
+// ==============================
 if (signupForm) {
   signupForm.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -9,7 +12,7 @@ if (signupForm) {
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
 
-    const res = await fetch(`${API_BASE}/auth/signup`, {
+    const res = await fetch(`${API_BASE}/api/auth/signup`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name, email, password })
@@ -24,6 +27,9 @@ if (signupForm) {
   });
 }
 
+// ==============================
+// LOGIN
+// ==============================
 if (loginForm) {
   loginForm.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -31,7 +37,7 @@ if (loginForm) {
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
 
-    const res = await fetch(`${API_BASE}/auth/login`, {
+    const res = await fetch(`${API_BASE}/api/auth/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password })
